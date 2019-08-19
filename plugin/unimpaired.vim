@@ -347,12 +347,14 @@ call s:map('n', '[p', '<Plug>unimpairedPutAbove')
 call s:map('n', ']p', '<Plug>unimpairedPutBelow')
 call s:map('n', '[P', '<Plug>unimpairedPutAbove')
 call s:map('n', ']P', '<Plug>unimpairedPutBelow')
-call s:map('n', '>P', ":<C-U>call <SID>putline(v:count1 . '[p', 'Above')<CR>>']", '<silent>')
-call s:map('n', '>p', ":<C-U>call <SID>putline(v:count1 . ']p', 'Below')<CR>>']", '<silent>')
-call s:map('n', '<P', ":<C-U>call <SID>putline(v:count1 . '[p', 'Above')<CR><']", '<silent>')
-call s:map('n', '<p', ":<C-U>call <SID>putline(v:count1 . ']p', 'Below')<CR><']", '<silent>')
-call s:map('n', '=P', ":<C-U>call <SID>putline(v:count1 . '[p', 'Above')<CR>=']", '<silent>')
-call s:map('n', '=p', ":<C-U>call <SID>putline(v:count1 . ']p', 'Below')<CR>=']", '<silent>')
+if !exists("g:unimpaired_disabled_pasting_enhancement")
+  call s:map('n', '>P', ":<C-U>call <SID>putline(v:count1 . '[p', 'Above')<CR>>']", '<silent>')
+  call s:map('n', '>p', ":<C-U>call <SID>putline(v:count1 . ']p', 'Below')<CR>>']", '<silent>')
+  call s:map('n', '<P', ":<C-U>call <SID>putline(v:count1 . '[p', 'Above')<CR><']", '<silent>')
+  call s:map('n', '<p', ":<C-U>call <SID>putline(v:count1 . ']p', 'Below')<CR><']", '<silent>')
+  call s:map('n', '=P', ":<C-U>call <SID>putline(v:count1 . '[p', 'Above')<CR>=']", '<silent>')
+  call s:map('n', '=p', ":<C-U>call <SID>putline(v:count1 . ']p', 'Below')<CR>=']", '<silent>')
+endif
 
 " Section: Encoding and decoding
 
